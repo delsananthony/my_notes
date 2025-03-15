@@ -38,3 +38,59 @@ if a history conflict occurs, resolve the conflict first.
   from feature1 branch: git checkout main
   in the main branch: git merge feature1
   delete feature1 branch: git branch -d feature1)
+
+
+
+# App Versioning
+1. Initial Setup (Version 0.1.0)
+   - git init
+   - git branch main
+   - git checkout main
+   - git commit --allow-empty -m "Initial Commit"
+   - git push -u origin main
+   - git tag v0.1.0
+2. Feature Development
+   - git checkout -b feature/<feature_name>
+   - git add .
+   - git commt -m "<commit_messaage>"
+   - git push origin feature/<feature_name>
+   - create a pull request in github from feature/<feature_name> to main
+   - review and approval
+   - git checkout main
+   - git pull origin main
+   - git tag v0.2.0
+   - git push origin v0.2.0
+3. Bug Fixes
+   - git checkout -b hotfix/fix-login-bug
+   - git add .
+   - git commit -m "Fix login authentication error"
+   - git push origin hotfix/fix-login-bug
+   - Create a pull request from hotfix/fix-login-bug to main on GitHub.
+   - After merging the PR, tag main with the patch version
+   - git checkout main
+   - git pull origin main
+   - git tag v0.2.1
+   - git push origin v0.2.1
+4. Major Releases
+   - git checkout -b release/1.0.0
+   - perform thorogh testing on the release/1.0.0 branch
+   - fix any critiicl bugs found during testing
+   - this is the stage for final code
+   - git checkout main
+   - git merge --no-ff release/1.0.0
+   - git push origin main
+   - git tag v1.0.0
+   - git push origin v1.0.0
+5. Pre-releases
+   - Use -alpha, -beta, or -rc suffixes to indicate pre-release stages.
+   - alpha: Early development, unstable.
+   - beta: Feature-complete, for wider testing.
+   - rc (release candidate): Near-final, for final testing.
+   - git tag v1.0.0-alpha.1 (First alpha release of version 1.0.0)
+   - git tag v1.0.0-beta.3 (Third beta release of version 1.0.0)
+   - git tag v1.0.0-rc.2 (Second release candidate of version 1.0.0)
+   - Practical example: 
+     - Imagine you're developing a major update to your app (version 2.0.0).
+     - After implementing core features, you tag an alpha release for internal testing: git tag v2.0.0-alpha.1.
+     - After fixing initial bugs and stabilizing, you tag a beta release for wider testing: git tag v2.0.0-beta.1
+     - After a couple of beta releases, and after all known bugs are fixed, you create a release candidate: git tag v2.0.0-rc.1
