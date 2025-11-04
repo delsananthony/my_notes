@@ -16,6 +16,18 @@
     #    Description: Brief description of the module or script.
     ############################################################################## ```
 
+- ```python
+
+  #!/usr/bin/env python3
+  # -*- coding: utf-8 -*-
+    """
+    A brief description of what this script does.
+    
+    Author: Your Name (your.email@example.com)
+    Created: 2025-11-04
+    """
+  ```
+
 ## Docstring
 - ```python
     def example_method(self, param1, param2):
